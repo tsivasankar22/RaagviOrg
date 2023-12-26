@@ -1,0 +1,27 @@
+<aura:component controller="carouselCommunity" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="selTabId" type="String" default="tab1" />
+    <div class = "slds-box" style = " background-color :white; height: auto; width: auto;" > 
+        <div align="center"><b><h1>Nature</h1></b></div> 
+        <div aura:id="data-entry">
+            <lightning:tabset variant="default" selectedTabId="{!v.selTabId}">
+                <lightning:tab aura:id="tab1" tabindex="1" id="tab1">
+                    <lightning:carouselImage src="{!$Resource.CarouselImages}"/> 
+                </lightning:tab>                
+                <lightning:tab aura:id="tab2" tabindex="2" id="tab2">
+                    <lightning:carouselImage src="{!$Resource.CarouselImages1}"/>
+                </lightning:tab>  
+                <lightning:tab aura:id="tab3" tabindex="3" id="tab3">
+                    <lightning:carouselImage src="{!$Resource.CarouselImages2}"/>  
+                </lightning:tab> 
+            </lightning:tabset>
+        </div>
+        <div class="slds-clearfix">
+            <div class="slds-float_left">  
+                <lightning:buttonIcon iconName="utility:chevronleft" disabled="{!v.selTabId == 'tab1'}" variant="brand" alternativeText="chevronleft" onclick="{!c.back}" />
+            </div>
+            <div class="slds-float_right">     
+                <lightning:buttonIcon iconName="utility:chevronright" disabled="{!v.selTabId == 'tab3'}" variant="brand" alternativeText="chevronright" onclick="{!c.next}" />
+            </div>
+        </div>
+    </div>
+</aura:component>

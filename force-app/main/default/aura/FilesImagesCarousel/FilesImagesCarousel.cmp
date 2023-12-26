@@ -1,0 +1,14 @@
+<aura:component controller="FilesImagesCarousel" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	 <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="ContentVersionId" type="List"/>
+    <aura:attribute name="selTabId" type="String" default="tab1" />
+    <div class="slds-box slds-box_xx-small slds-text-align_center" style="background-color: white; height : auto; width : 50%;">
+        <figure class="slds-image slds-image--card">
+            <aura:iteration items="{!v.ContentVersionId}" var="a" indexvar="index">
+                <a href="#" class="slds-image__crop slds-image__crop---4x3">
+                   <img src="{!'/sfc/servlet.shepherd/version/download/' + a.Id}" />
+                </a>
+            </aura:iteration>
+        </figure>
+    </div>       
+</aura:component>

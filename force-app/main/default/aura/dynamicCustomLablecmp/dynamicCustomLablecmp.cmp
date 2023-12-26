@@ -1,0 +1,40 @@
+<aura:component controller="dynamicCustomLableCtrl" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="customLablVal" type="String"/>
+    <aura:attribute name="custmLblStg" type="boolean" default="true"/>
+    
+    <div class="slds slds-m-around_large">
+        
+        <aura:if isTrue="{!v.custmLblStg}">
+            <div class="slds-text-align--center slds-m-bottom_large">
+                <button class="slds-button slds-button--brand" onclick="{!c.PractiveAura.cmp}">Testing</button>                
+            </div>
+            <table class="slds-table slds-table--bordered slds-table_col-bordered" style="border:1px #ddd solid; font-size:15px;">  
+                <thead>  
+                    <tr>  
+                       
+                        <h2><B><u>Buy one Get One</u></B></h2>
+                    <P>Am providing a buy one get one offer this will be expired soon</P>
+                    <br/>
+                    <h2><u><B>Regristation</B></u></h2>
+                    <p>registarctions are opens now</p>
+                    <br/>
+                    <h2><u><B>Raagvitech</B></u></h2>
+                    <p>Welcome to raagvitech</p>
+                    <br/>
+                    <h2><u><B>Salesforce</B></u></h2>
+                    <p>Welcome to salesforce developer</p>
+                    <br/>
+                        <h2><u><B>Student Portal</B></u></h2>
+                    <p>Student portal now opens</p>
+                    <br/>
+                    </tr>  
+                </thead>  
+ 
+            </table>
+        </aura:if>
+        
+    </div>
+    
+</aura:component>

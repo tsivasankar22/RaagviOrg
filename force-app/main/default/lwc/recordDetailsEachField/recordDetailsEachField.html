@@ -1,0 +1,73 @@
+<template>
+    <lightning-card>
+        <template if:true={recData}>
+            <!-- <div class="slds-col slds-size_1-of-12">
+                <lightning-button-icon icon-name="utility:edit" onclick={handleEdit}>
+                </lightning-button-icon>
+            </div> -->
+            <div class="slds-size_6-of-12">
+            <lightning-record-view-form
+        record-id={recordId}
+        object-api-name="Financial_Account__c"
+    >
+    
+            <lightning-output-field field-name="Name">
+                <lightning-button-icon icon-name="utility:edit"    alternative-text="Edit"   class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+            </lightning-output-field>
+            <lightning-output-field field-name="Residential_Loan_Application__c">
+                <div class="slds-col slds-size_1-of-12">
+                    <lightning-button-icon icon-name="utility:edit" onclick={handleEdit}>
+                    </lightning-button-icon>
+                </div>
+            </lightning-output-field>
+            <lightning-output-field field-name="Broker__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Status__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="CreatedById">
+            </lightning-output-field>
+            <lightning-output-field field-name="LastModifiedById">
+            </lightning-output-field>
+            <lightning-output-field field-name="OwnerId">
+            </lightning-output-field>
+         </lightning-record-view-form>
+     </div>
+            <lightning-input
+                label="Financial Account Name"               
+                value={recData.Name}
+                onchange={handleFieldChange}
+                onclick={handleEdit}>     
+            </lightning-input>
+            <lightning-input
+            label="Status"               
+            value={recData.Status__c}
+            onchange={handleFieldChange}>     
+        </lightning-input>
+        <lightning-input
+            label="Residential Loan Application"               
+            value={recData.Residential_Loan_Application__r.Name}
+            onchange={handleFieldChange}>     
+        </lightning-input>
+        <lightning-input
+            label="Broker"               
+            value={recData.Broker__r.Name}
+            onchange={handleFieldChange}>     
+        </lightning-input>
+        <lightning-input
+            label="Created By"               
+            value={recData.CreatedBy.Name}
+            onchange={handleFieldChange}>     
+        </lightning-input>
+        <lightning-input
+        label="Owner"               
+        value={recData.Owner.Name}
+        onchange={handleFieldChange}>     
+    </lightning-input>
+    <lightning-input
+        label="Last Modified By"               
+        value={recData.LastModifiedBy.Name}
+        onchange={handleFieldChange}>     
+    </lightning-input>
+        </template>
+    </lightning-card>
+</template>

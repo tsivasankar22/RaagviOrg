@@ -1,0 +1,54 @@
+<aura:component controller="displayImage" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+  
+    
+         <aura:handler name="init" action="{!c.myAction}" value="{!this}" />  
+        <aura:attribute name="ContentVersionId" type="List"/>
+       
+           <aura:attribute name="imagesUrl" type="String[]" />
+        
+     
+    <div id="ContentVersionId" class="carousel slide imageInterval" data-ride="carousel" >
+       <aura:iteration items="{!v.ContentVersionId}" var="acc">    
+        <ol class="carousel-indicators">
+            <aura:iteration items="{!acc.ContentVersionId}" var="imgUrl" indexVar="index">                                
+                <aura:if isTrue="{!index == 0}">
+                    <li data-target="ContentVersionId" data-slide-to="{!index}" class="active"></li>
+                    <aura:set attribute="else">
+                        <li data-target="ContentVersionId" data-slide-to="{!index}" ></li>
+                    </aura:set>
+                </aura:if>   
+            </aura:iteration>      
+        </ol>
+         </aura:iteration>
+        
+        <div class="carousel-inner" role="listbox">  
+             <aura:iteration items="{!v.ContentVersionId}" var="acc">    
+            <aura:iteration items="{!acc.ContentVersionId}" var="imgUrl" indexVar="index">   
+                <aura:if isTrue="{!index == 0}">
+                    <div class="item active" >
+                        
+                        <div class="carousel-caption"> </div>
+                    </div>
+                    <aura:set attribute="else" >
+                        <div class="item " >
+                            
+                            <div class="carousel-caption"> </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                
+            </aura:iteration>
+                 </aura:iteration>
+        </div>
+    
+        <a class="left carousel-control" href="" role="button" data-slide="Previous" onclick="{!c.Previous}">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="" role="button" data-slide="Next" onclick="{!c.Next}">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> 
+            <span class="sr-only">Next</span>
+        </a> 
+    </div>
+               
+</aura:component>

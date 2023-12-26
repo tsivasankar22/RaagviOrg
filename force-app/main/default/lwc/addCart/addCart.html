@@ -1,0 +1,163 @@
+<template>
+	<lightning-card>
+		<div align="center"><span class="slds-page-header__title slds-truncate" title="Order Your Favourite One">Groceries Orders</span></div>
+		<p align="right">
+		<lightning-icon onclick={handleOpenCart} icon-name="standard:webcart"></lightning-icon>
+			<lightning-badge label={totalInCart}></lightning-badge> 
+	    </p>
+	</lightning-card>
+
+	<div class="main-container">
+	<lightning-card >
+		<!-- This Modal will only be visible if showModal is set to false -->
+		<template if:false={showModel}>
+		
+			<div class="slds-p-around_small">
+				<div class="slds-grid slds-wrap">
+					
+					<template for:each={grocerieItem.data} for:item="grocerie">
+						<div key={grocerie.Id}>
+							<div class="slds-col slds-p-around_small">
+								<div class="slds-grid slds-gutters">
+									<lightning-card title={grocerie.Name} class="my-card-child">
+										<div class="slds-p-horizontal_small slds-col">
+											<div class="slds-grid slds-gutters">
+												<div class="slds-col slds-align_absolute-center">
+													<img src={grocerie.Image__c} height="50px" width="50px" style="border-radius: 8px;"/>
+												</div>
+												<p class="slds-p-horizontal_small"> 
+													Name: {grocerie.Name}<br/>
+													Brand: {grocerie.Brand_Name__c}<br/>
+													Price: {grocerie.Price__c}
+												</p>
+											</div>
+											<div class="slds-align_absolute-center">
+												<lightning-layout-item>
+													<lightning-button variant="brand" label="Add To Cart" title="Add To Cart"
+														onclick={handleAddToCart} value={grocerie.Id} data-id={grocerie.Id} data-name={grocerie.Name} data-brand={grocerie.Brand_Name__c} data-image={grocerie.Image__c} data-price={grocerie.Price__c} data-tprice={grocerie.Total_Price__c}>
+													</lightning-button>
+												</lightning-layout-item>
+											</div>
+										</div>
+									</lightning-card>
+								</div>
+							</div>
+						</div>
+					</template>
+				</div>  
+			</div>
+		</template>
+
+
+		<!-- This Modal will only be visible if showModal is set to true -->
+		<template if:true={showModel}>
+			
+			<div class="slds-p-around_small">
+				<table class="slds-table slds-table_cell-buffer slds-table_bordered"
+					aria-labelledby="element-with-table-label other-element-with-table-label">
+					<thead>
+						<tr class="slds-line-height_reset">
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Product Name">Product Name</div>
+							</th>
+
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Brand">Brand</div>
+							</th>
+
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Image">Image</div>
+							</th>
+
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Quantity">Quantity</div>
+							</th>
+
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Price">Price</div>
+							</th>
+
+							<th class="" scope="col">
+								<div class="slds-truncate" title="Price">TotalPrice</div>
+							</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						<template for:each={cartData} for:item="con">
+							<tr class="inputRows" key={con.Id}> 
+								<td data-label="Opportunity Name" scope="row">
+									<p>{con.cartName}</p>
+								</td>
+
+								<td data-label="Opportunity Name">
+									<p>{con.cartBrandName}</p>
+								</td>
+
+								<td data-label="Opportunity Name">
+									<p><img src={con.cartImage__c} height="50px" width="50px"></p>
+								</td>
+
+								<td data-label="Opportunity Name">         
+									<lightning-layout>
+										<lightning-layout-item>
+											<lightning-button-icon icon-name="utility:dash" alternative-text="decrement" title="decrement" onclick={decrement} value={con.cartId} variant='brand'></lightning-button-icon>
+										</lightning-layout-item>
+										<lightning-layout-item class="input">
+											<lightning-input type="number" value={con.cartQuantity} variant="label-hidden" disabled></lightning-input>
+										</lightning-layout-item>
+										<lightning-layout-item>
+											<lightning-button-icon icon-name="utility:add" alternative-text="increment" title="increment" onclick={increment} value={con.cartId} variant='brand'></lightning-button-icon>
+										</lightning-layout-item>
+									</lightning-layout>   
+								</td>
+
+								<td data-label="Opportunity Name">
+									<p>{con.cartPrice}</p>
+								</td>
+
+								<td data-label="Opportunity Name">
+									<p>{con.cartTotalPrice}</p>
+								</td>
+								
+								<td data-label="Close Date">
+									<lightning-button-icon icon-name="utility:delete" alternative-text="Delete" class="slds-m-left_xx-small" title="Delete" 
+										onclick={deleteCartItem} value={con.cartId} >
+									</lightning-button-icon>
+								</td>
+
+							</tr>
+						</template>
+						<tr class="inputRows" >
+							<th data-label="Opportunity Name" scope="row">
+								<p>Total</p>
+							</th>
+							<td data-label="Opportunity Name">
+								<p></p>
+							</td>
+							<td data-label="Opportunity Name">
+								<p></p>
+							</td>
+							<td data-label="Total Quantity">
+								<p class="quantity">{totalQuantity}</p>
+							</td>
+							<td data-label="Opportunity Name">
+								<p></p>
+							</td>
+							<td data-label="Total Price">
+								<p>{totalPrice}</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<footer class="slds-modal__footer">
+				<lightning-button variant="brand" onclick={closeModal} label="Continue Shopping"></lightning-button>&nbsp;&nbsp;
+				<lightning-button variant="brand" onclick={handelCreateOrder} label="Create Order"></lightning-button>  
+			</footer>  
+		</template>
+   </lightning-card>
+</div>
+</template>

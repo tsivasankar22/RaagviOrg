@@ -1,0 +1,22 @@
+<template>
+    <h1> Welcome To InstaShare </h1>
+    <tr>
+        <th scope="col" > Name</th>
+        <th scope="col" > Email</th>
+        <th scope="col" > Status</th>
+        <th scope="col" > Document</th>
+    </tr>
+    <template for:each={StuList} for:item="InstaShareData">
+        <tr key={InstaShareData.Id}>
+            <td scope="row" data-label="Name">
+                <div class="slds-truncate" title={stuData.Name}>{stuData.Name}</div>
+            </td>
+            <td scope="row" data-label="Parent_Mail">
+                <div class="slds-truncate" title={stuData.StudentParentMail__c}>{stuData.StudentParentMail__c}</div>
+            </td>
+            <td scope="row" data-label="Average_Marks">
+                <div class="slds-truncate" title={stuData.AverageMarks__c}>{stuData.AverageMarks__c}</div>
+            </td>
+        </tr>
+    </template>   
+</template>

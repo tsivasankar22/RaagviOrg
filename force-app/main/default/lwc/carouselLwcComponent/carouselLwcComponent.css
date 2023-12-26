@@ -1,0 +1,10 @@
+.container {
+    background-color: transparent;
+    max-height: 500px;
+    max-width: auto;
+}
+.imageblock {
+    max-width: auto;
+    max-height: 400px;
+    object-fit: contain;
+}

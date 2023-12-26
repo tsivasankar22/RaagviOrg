@@ -1,0 +1,12 @@
+<template>
+  <div>
+      <template for:each={options} for:item="option">
+          <div key={option.value} class="radio-option">
+              <lightning-input type="radio" label={option.label} value={option.value} name="radioGroup" onchange={handleOptionChange}></lightning-input>
+              <div class="additional-text">
+                  {option.text}
+              </div>
+          </div>
+      </template>
+  </div>
+</template>

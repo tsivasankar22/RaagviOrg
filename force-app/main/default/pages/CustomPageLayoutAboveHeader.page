@@ -1,0 +1,30 @@
+<!-- <apex:page standardController="Contact" showHeader="false" sidebar="false">
+ <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    $Lightning.use("c:CustomPageHeaderFieldsApp", function() {
+        $Lightning.createComponent("c:PicklistValuesDisplay",
+        { recordId: '{!$CurrentPage.parameters.id}' },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page> -->
+<apex:page standardController="Contact" showHeader="false" sidebar="false">
+    <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <apex:outputPanel rendered="{!$User.Id == '0055h000005XNO3AAO'}">
+        <!-- Content to display when the user is 'Sivasankara Thellamekhala' -->
+        $Lightning.use("c:CustomPageHeaderFieldsApp", function() {
+            $Lightning.createComponent("c:PicklistValuesDisplay",
+            { recordId: '{!$CurrentPage.parameters.id}' },
+            "LightningComponentid",
+            function(cmp) {
+                console.log('LWC Component added in VF page');
+            });
+        });
+    </apex:outputPanel>
+</apex:page>
+

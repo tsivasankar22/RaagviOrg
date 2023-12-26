@@ -1,0 +1,40 @@
+<template>
+    <lightning-input type="search" onchange={handleSearchDeals}  placeholder="Search..." value={dealsName}></lightning-input>
+    <br/>
+    <br/>
+    <template if:true={displayAllData}>
+    <lightning-tabset variant="vertical">
+        <lightning-tab label="All" value="All" onactive={handleTabChange}>    
+        </lightning-tab>
+        <lightning-tab label="Residential Loan Application" value="Residential_Loan_Application__c" onactive={handleTabChange}>
+        </lightning-tab>
+        <lightning-tab label="Contacts" value="Contact" onactive={handleTabChange}>
+        </lightning-tab>
+        <lightning-card >   
+            <div style="width: auto;">
+                <template if:true={data}>
+                    <lightning-datatable
+                                         class="datatable-full-size"
+                                         data={data}
+                                         columns={columns}
+                                         key-field="id"
+                                         sorted-by={sortBy}
+                                         sorted-direction={sortDirection}
+                                         onsort={handleSortDealsData}
+                                         show-row-number-column="true"
+                                         hide-checkbox-column="true"
+                                         ></lightning-datatable>
+
+                                        
+                    
+                </template>
+            </div>
+            <template if:true={showViewMore}>
+                <div class="container">
+                <lightning-button  variant="base" class="slds-m-left_x-small" label="View All" onclick={handleViewMore}></lightning-button>
+                </div>
+              </template> 
+        </lightning-card>     
+    </lightning-tabset>
+</template>
+</template>

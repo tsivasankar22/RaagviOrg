@@ -1,0 +1,92 @@
+<template>
+    <lightning-card>
+    <lightning-progress-indicator current-step={currentStep} type="path" variant="base" >
+        <lightning-progress-step label="Step 1" value="1" onclick={handleOnStepClick}>Case Number</lightning-progress-step>
+        <lightning-progress-step label="Step 2" value="2" disabled={Onecomponent} onclick={handleOnStepClick}></lightning-progress-step>
+        <lightning-progress-step label="Step 3" value="3" onclick={handleOnStepClick}></lightning-progress-step>  
+        <lightning-progress-step label="Step 4" value="4" onclick={handleOnStepClick}></lightning-progress-step>
+    </lightning-progress-indicator>
+
+    <div class="slds-text-align_right">  
+    <template if:true={isStepOne}>
+        <div class="c-container">
+            <lightning-layout multiple-rows="true">
+                <div class="slds-p-left_medium">
+                <div class="slds-text-align_left">
+                    <h3><b>Case Number</b></h3>
+               </div>
+               </div>
+                <lightning-layout-item padding="around-small" size="12">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_1-of-2">
+                            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                <div>
+                                   <lightning-card title={valueText}>
+                                    <template if:true={openCases}>
+                                        <div class="slds-card__body_inner">
+                                            <lightning-combobox
+                                            required
+                                                name="progress"
+                                                class="caseCmp"
+                                                label="Case Number Associated With this registration."
+                                                value={defaultValue}
+                                                options={eventOptions}
+                                                default={defaultValue}
+                                                onchange={handleEventMgrChange} >
+                                            </lightning-combobox>
+                                        </div>
+                                    </template>
+                                    </lightning-card>             
+                                  </div>
+                            </div>
+                           </div>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <div>
+            Step 1
+        </div>
+    </template>
+  
+    <template if:true={isStepTwo}>
+        <div class="slds-p-horizontal_medium">
+                </div>
+                <div>
+                 <c-stepper-Component2 records={recordId} onupdate={update} ></c-stepper-Component2>
+                    step2
+                </div>
+            </template>
+            
+    <template if:true={isStepThree}>
+        <div class="slds-p-horizontal_medium">
+                <div class="slds-text-align_left">
+        </div>
+        </div>
+        <div>
+            <c-stepper-Component3 contactdata1={contactsforstep3} ></c-stepper-Component3>
+            Step 3
+        </div>
+    </template>
+    <template if:true={isStepFour}>
+        <div>
+            <c-stepper-Component4 ></c-stepper-Component4>
+            Step 4
+        </div>
+    </template>
+    
+</div>
+<div class="slds-p-right_large">
+    <div class="slds-text-align_right">
+    <!-- <template if:true={isEnablePrev}>
+        <lightning-button variant="base" label="Back" onclick={handlePrev}></lightning-button>
+    </template> -->
+     
+    <template if:true={isEnableNext}>
+        <lightning-button label="Next" variant="brand" onclick={handleNext}></lightning-button>
+    </template>
+
+    </div>
+</div>
+</lightning-card>
+</template>

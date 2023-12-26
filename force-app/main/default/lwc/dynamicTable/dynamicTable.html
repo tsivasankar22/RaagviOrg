@@ -1,0 +1,44 @@
+<template>
+    <div if:true={isSpinnerShow}>
+     <lightning-spinner variant='brand' size='medium'></lightning-spinner> 
+    </div>
+    <div if:true={error} id='error-message' class="slds-required">Error :{error}</div>
+    <!-- <lightning-button label='Refresh' onclick={getCompleteData} ></lightning-button> -->
+    <lightning-card title={sObjectLabel} icon-name="">
+        <div class="slds-text-title_bold" slot="title">
+             {sObjectPluralLabel} ({totalRecords})
+        </div>
+        <div id="slds-table-section" class="slds-p-around--x-small">
+            <table class="slds-table slds-table--bordered">
+               <thead>
+                   <tr>
+                       <template for:each={sObjectColumns} for:item="field" >
+                                <th class="cell" key={field.label}> {field.label}</th>
+                       </template>
+                   </tr>
+               </thead>
+               <tbody>
+                   <template for:each={sObjectData} for:item="row" >
+                       <tr key={row.Id}>
+                           <template for:each={sObjectColumns} for:item="field" >
+                               <td key={field.label}> 
+                                <c-dynamic-table-item onshowbuttons={handleShowButtons} onmycustomevent={handleCustomEvent} record={row} field={field} s-object-name={sObjectName} ></c-dynamic-table-item>
+                               </td>
+                            </template>
+                       </tr>
+                   </template>
+               </tbody>
+           </table> 
+        </div>
+       
+        <template if:true={SaveCance}>
+            <div class="slds-align_absolute-center">
+                <lightning-button label="Save" variant="Brand" onclick={handleSave}></lightning-button>
+                <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+            </div>
+            
+
+        </template>
+    </lightning-card>
+    <!-- <c-dynamic-table-item onshowbuttons={handleShowButtons}></c-dynamic-table-item> -->
+</template>

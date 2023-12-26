@@ -1,0 +1,20 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+  <!-- <script>
+    window.onload = function() {
+        console.log('hlo');
+      // Get the fileId from the query parameters
+      var fileId = '{!$CurrentPage.parameters.fileId}';
+
+      // Construct the URL for the file preview
+      var filePreviewUrl = '/sfc/servlet.shepherd/document/download/' + fileId;
+
+      // Open the file preview URL
+      window.open(filePreviewUrl, '_blank');
+
+      // Inject custom CSS styles to hide the download option in the toolbar action
+      var style = document.createElement('style');
+      style.innerHTML = '.contentWrapper .slds-button-group .previewActionContainer .downloadAction { display: none !important; }';
+      document.head.appendChild(style);
+    };
+  </script> -->
+</apex:page>

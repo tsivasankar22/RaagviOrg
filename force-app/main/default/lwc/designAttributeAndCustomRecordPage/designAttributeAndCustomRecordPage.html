@@ -1,0 +1,34 @@
+<template>
+   
+        <template if:true={dataTableList}>
+            <lightning-datatable
+                data={listRecs}
+                columns={columns}
+                key-field="Id"
+                onrowaction={handleRowAction}
+                hide-checkbox-column="true"
+                show-row-number-column="true"
+            >
+            </lightning-datatable>
+        </template>
+        <div class="box">
+            <div class="boxcontainer">
+        <template if:true={relatedObjectRecords}>
+            <template for:each={relatedObjectCounts} for:item="count">
+                <div key={count.name}>
+                   
+                        <div class="account ">
+                     
+                         <b> <h4>  {count.name} ({count.count})</h4></b>
+                      
+                    </div>
+                 
+                 
+                        <!-- Add any additional details you want to show here -->
+            
+                </div>
+            </template>
+        </template>
+    </div>
+</div>
+</template>

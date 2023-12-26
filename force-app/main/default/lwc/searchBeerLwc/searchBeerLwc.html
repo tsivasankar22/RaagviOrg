@@ -1,0 +1,52 @@
+<template>
+    <div class="slds-p-around_small">
+        <lightning-input
+                         name="inline-search-input"
+                         label="Beer Search"
+                         type="search"
+                         value={searchKey}
+                         variant="label-hidden"
+                         onchange={doSerach}
+                         ></lightning-input>
+    </div>
+     <div  class="slds-grid slds-wrap">
+        <template for:each={resultList} for:item="data">
+            <div key={data.Id}>
+                 <div class="slds-col slds-p-around_small">
+                    <lightning:card  title={data.Name} footer={data.brewery_Name__c}>
+                        {data.brewery_Name__c}
+                        <!--<div class="slds-p-horizontal_small">
+                            <div class="slds-grid slds-gutters">
+                               
+                                <div class="slds-col slds-size_1-of-3"> 
+                                    <img src={data.Image__c} height="200px" width="200px"/> 
+                                </div>  
+                                <div>
+                                     <img src={data.Image__c} height="200" width="200"/> 
+                                   Name        :  {data.Name}<br/>
+                                    Id         : {data.Id__c}<br/>
+                                    Alcohol %  : {data.Alchol__c}
+                                </div>
+
+                                <img   src={data.Image__c} height="200" width="200" />
+           
+            <div   class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Name:</b> {data.Name}</div><br/>
+            <div   class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Id :</b> {data.Id__c}</div><br/>
+            <div   class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Alcohol %  :</b> {data.Alchol__c}</div>
+
+                            </div> -->
+                            <div class="slds-p-horizontal_small slds-col ">
+                                <div class="slds-grid slds-gutters">
+                                <div><img src={data.Image__c} height="100px" width="20px"/></div>
+                                    Name: {data.Name}<br/>
+                                    Id: {data.Id__c} <br/>y
+                                </div>
+                                </div>
+
+                        <!-- </div> -->
+                    </lightning:card>
+                </div>
+            </div>
+            </template>
+            </div>
+</template>

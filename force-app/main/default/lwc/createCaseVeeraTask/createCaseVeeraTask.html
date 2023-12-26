@@ -1,0 +1,115 @@
+<template>
+    <template if:true={createCaseButton}>
+        <lightning-button
+            variant="brand"
+            label="Create Case"
+            title="Create Case"
+            onclick={handleClick}
+            class="slds-m-left_x-small"
+        ></lightning-button>
+    </template>
+    <template if:true={mobileServices}>
+        <div class="standard-section">
+            <div class="section-header">
+                Mobile Services
+            </div>
+            <div class="header-container">
+                <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Action</th>
+                            <th>Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <lightning-button
+                                    variant="base"
+                                    label="Clone"
+                                    title="Clone"
+                                    onclick={handleClone}
+                                    class="slds-m-left_x-small">
+                                </lightning-button>
+                                <lightning-button
+                                    variant="base"
+                                    label="Delete"
+                                    title="Delete"
+                                    onclick={handleDelete}
+                                    class="slds-m-left_x-small">
+                                </lightning-button>
+                            </td>
+                            <td>
+                                <template for:each={transformedData} for:item="item">
+                                    <div key={item}>
+                                        <lightning-combobox
+                                            label={item.fieldName}
+                                            options={item.options}
+                                            data-fieldname={item.fieldName}
+                                            onchange={handleChange}
+                                         ></lightning-combobox>
+                                    </div>
+                                </template>
+                            </td>
+                            <td>
+                                <lightning-button
+                                    variant="base"
+                                    label="Add More"
+                                    title="Add More"
+                                    onclick={handleAddMore}
+                                    class="slds-m-left_x-small">
+                                </lightning-button>
+                            </td>
+                        </tr>
+                        <template for:each={clonedRows} for:item="clonedRow">
+                            <tr key={clonedRow.values.Id}>
+                                <td>{clonedRow.values.Id}</td>
+                                <td>
+                                    <lightning-button
+                                        variant="base"
+                                        label="Clone"
+                                        title="Clone"
+                                        onclick={handleClone}
+                                        class="slds-m-left_x-small">
+                                    </lightning-button>
+                                    <lightning-button
+                                        variant="base"
+                                        label="Delete"
+                                        title="Delete"
+                                        onclick={handleDelete}
+                                        class="slds-m-left_x-small">
+                                    </lightning-button>
+                                </td>
+                                <td>       
+                                    <template for:each={transformedDataWithValues} for:item="itemWithValues">
+                                        <div key={itemWithValues.fieldName}>
+                                            <lightning-combobox
+                                                label={itemWithValues.fieldName}
+                                                options={itemWithValues.options}
+                                                data-fieldname={itemWithValues.fieldName}
+                                                value={itemWithValues.selectedValue}
+                                                onchange={handleChange}>
+                                            </lightning-combobox>
+                                        </div>
+                                    </template>                                            
+                                </td>
+                                <td>
+                                    <lightning-button
+                                        variant="base"
+                                        label="Add More"
+                                        title="Add More"
+                                        onclick={handleAddMore}
+                                        class="slds-m-left_x-small">
+                                    </lightning-button>
+                                </td>
+                            </tr>
+                        </template>    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>   
+</template>

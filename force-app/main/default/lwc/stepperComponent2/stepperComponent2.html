@@ -1,0 +1,52 @@
+<template>
+    <lightning-card title="Contacts "><br>
+        <div class="slds-p-horizontal_medium">
+            <div class="slds-text-align_left">
+
+            <h1>Contact listed on Account</h1>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate"></div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Phone">Phone</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Email">Email</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={contactlist} for:item="con">
+                        <tr key={con.Id}>
+                            <th>
+                                <lightning-input type="checkbox" value={con.Id} name="options"  onchange={selectonecheckbox}>
+                                </lightning-input>
+                             </th>
+                            <th scope="col">
+                            <div>{con.Name}</div>
+                            </th>
+                            <th scope="col">
+                            <div>{con.Phone}</div>
+                            </th>
+                            <th scope="col">
+                            <div>{con.Email}</div>
+                            </th>
+                            </tr>
+                            
+                            </template>
+                           
+                        </tbody>
+            </table>
+
+                    </div>
+                    </div>
+                    
+    </lightning-card>
+    
+    </template>

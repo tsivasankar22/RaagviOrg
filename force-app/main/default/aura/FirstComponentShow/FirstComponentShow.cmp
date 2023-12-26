@@ -1,0 +1,23 @@
+<aura:component controller="FirstLightningObjectSave" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="show" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <div class="slds-align_absolute-center slds-border_bottom slds-page-header slds-text-heading--large slds-m-top_medium">
+        Testing
+    </div>
+    
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        
+        <tbody>
+            <aura:iteration items="{!v.show}" var="s">
+                <tr>
+                       
+                    <tr><div class="slds-truncate" title="{!s.Message_Title__c}"><u><B>{!s.Message_Title__c}</B></u></div></tr>
+                    <tr><div class="slds-truncate" title="{!s.Message_Body__c}">{!s.Message_Body__c}</div></tr>
+                    
+         
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    
+</aura:component>

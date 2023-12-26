@@ -1,0 +1,7 @@
+.THIS .content-container {
+    display: none;
+}
+.THIS img {
+    max-height: 200px;
+    object-fit: contain;
+}

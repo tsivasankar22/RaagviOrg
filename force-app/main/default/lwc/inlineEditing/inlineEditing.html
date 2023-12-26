@@ -1,0 +1,70 @@
+<!-- <template>
+    <lightning-card title="Inline Editing" icon-name="standard:contact">
+        <template if:true={contacts.data}>
+            <lightning-datatable key-field="Id"
+                                 data={contacts.data} 
+                                 columns={columns} 
+                                 onsave={handleSave}
+                                 draft-values={saveDraftValues} 
+                                 hide-checkbox-column 
+                                 show-row-number-column>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template> -->
+<template>
+    <lightning-card title="Inline Editing" icon-name="standard:contact">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template if:true={contacts}>
+                    <template for:each={contacts} for:item="contact">
+                        <tr key={contact.Id}>
+                            <td>{contact.Name}</td>
+                            <td>
+                                <template if:true={contact.isEditable}>
+                                    <lightning-input type="text" value={contact.FirstName} onchange={hlo}></lightning-input>
+                                </template>
+                                <template if:false={contact.isEditable}>
+                                    {contact.FirstName}
+                                </template>
+                            </td>
+                            <td>
+                                <template if:true={contact.isEditable}>
+                                    <lightning-input type="text" value={contact.LastName} onchange={hlo}></lightning-input>
+                                </template>
+                                <template if:false={contact.isEditable}>
+                                    {contact.LastName}
+                                </template>
+                            </td>
+                            <td>
+                                <template if:true={contact.isEditable}>
+                                    <lightning-input type="text" value={contact.Phone} onchange={hlo}></lightning-input>
+                                </template>
+                                <template if:false={contact.isEditable}>
+                                    {contact.Phone}
+                                </template>
+                            </td>
+                            <td>
+                                <template if:false={contact.isEditable}>
+                                    <lightning-button label="Edit" data-id={contact.Id} onclick={handleEditClick}></lightning-button>
+                                </template>
+                                <template if:true={contact.isEditable}>
+                                    <lightning-button label="Save" data-id={contact.Id} onclick={handleSaveClick}></lightning-button>
+                                </template>
+                            </td>
+                        </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

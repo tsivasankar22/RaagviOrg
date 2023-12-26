@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="LWC subscribe component" icon-name="standard:account">
+        <div class="slds-m-top_large">
+            <lightning-button label="Subscribe" variant="brand" title="" onclick={subscribeMC} class="slds-m-left_small"  disabled={isSubscribeDisabled}>
+            </lightning-button>
+            <lightning-button label="Unsubscribe" variant="brand" title="" onclick={unsubscribeMC} class="slds-m-left_medium"  disabled={isUnsubscribeDisabled}>
+            </lightning-button>
+        </div>
+        <!-- <template for:each={accountName} for:item="record">
+            <div key={record.Id}> -->
+              
+                <lightning-datatable
+                key-field="id"
+                data={accountName}
+                columns={columns}>
+        </lightning-datatable>
+            <!-- </div>
+        </template>  -->
+      
+    </lightning-card>
+</template>

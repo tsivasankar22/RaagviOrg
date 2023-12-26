@@ -1,0 +1,27 @@
+<template>
+    <div class="boxpage">
+        <div class="centerbox">
+        <div class="heading">
+           <b><h1>Stepper</h1></b>
+        </div>
+
+        <div class="container">
+                  <c-step
+                    steps={steps}
+                    currentstepindex={currentstepindex}
+                    stepindex={index}
+                
+                ></c-step>
+        </div> 
+
+    <footer class="slds-modal__footer">
+            <div class="prevbutton">
+                <template if:true={isLastStep}>
+                    <lightning-button variant="brand" label="Next" onclick={handleNext}  ></lightning-button>
+                </template>
+            </div>
+        </footer>
+        </div>
+    </div>
+
+</template>

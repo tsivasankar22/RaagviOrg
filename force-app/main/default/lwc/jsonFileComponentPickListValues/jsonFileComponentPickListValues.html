@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Dynamic Form">
+        <div>
+            <template for:each={picklistFieldsArray} for:item="field">
+                <div key={field.Name}>
+                    <lightning-combobox
+                        label={field.Name}
+                        options={field.options}
+                        data-fieldname={field.Name}
+                        value={field.Value}
+                        onchange={handleComboChange}>
+                    </lightning-combobox>
+                </div>
+            </template>
+            <template for:each={textFields} for:item="field">
+                <div key={field.Name}>
+                    <lightning-input
+                        label={field.Name}
+                        data-fieldname={field.Name}
+                        value={field.Value}
+                        onchange={handleTextChange}>
+                    </lightning-input>
+                </div>
+            </template>
+        
+        </div>
+    </lightning-card>
+</template>

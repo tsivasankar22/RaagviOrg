@@ -1,0 +1,43 @@
+.standard-section {
+    margin-top: 20px;
+}
+
+.section-header {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.action-type-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-container,
+.type-container,
+.description-container {
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+}
+
+/* Additional style to bring Action and Type closer together */
+.action-container {
+    margin-right: 20px;
+}
+

@@ -1,0 +1,55 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" 
+                controller="LibraryController" access="global">
+    <!--force:LightningQuickAction,force:hasRecordId,-->
+    <aura:handler name="init" action="{!c.returnAttList}" value="{!this}" />
+    <aura:attribute name="atlist" type="String"/>
+   <!-- <aura:attribute name="contactId" type="String" default="salesforceCurosel"/>
+    <aura:attribute name="Pic" type="String"/> -->
+    <div>
+    	<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                <thead>
+                    <tr class="slds-text-title--caps" style="background: rgb(159, 170, 181);">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Id"></div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Body"></div>
+                        </th>
+                       
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                   
+                
+                    <aura:iteration items="{!v.atlist}" var="acc">
+                        <tr>
+                            <td>
+                                <div class="slds-truncate">{!acc.Id}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate"><img src="https://resttestdomain-dev-ed.lightning.force.com/one/one.app#/sObject/0032800001EXXanAAH"/></div>
+                            </td>
+                            
+                          <!--  <td>
+                                <div class="slds-truncate"><ui:outputRichText value="{!acc.body}"/>
+</div>
+                            </td> -->
+                            
+                        </tr>
+                        
+                        
+                            
+                    </aura:iteration>
+                </tbody>
+            </table>
+    
+    
+    
+    </div>
+    
+    
+    
+    
+</aura:component>

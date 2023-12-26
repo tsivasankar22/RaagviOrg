@@ -1,0 +1,62 @@
+<template>  
+<div class="flex-container">
+    <lightning-layout>
+        <lightning-layout-item>
+            <div class="slds-card" style="height:1000px; width:200px">
+            <div>1</div>
+            <div><B>To-Do</B></div>
+            <div class="flex-container " ondragover={allowDrop} ondrop={drop1}>
+                <div id="ToDo2" class="box incomplete" draggable="true" ondragstart={drag}>
+                   {header}
+                </div>
+                <div id="ToDo3" class="box incomplete" draggable="true" ondragstart={drag}>
+                    {header}
+                </div>
+            </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <div class="slds-card" style="height:1000px; width:200px">
+            <div>2</div>
+            <div><B>In-Progress</B></div>
+            <div class="flex-container" ondragover={allowDrop} ondrop={drop}>
+                <div id="ToDo1" class="box completed" draggable="true" ondragstart={drag}>
+                {header}
+                </div>
+            </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <div class="slds-card" style="height:1000px; width:200px">
+            <div>3</div>
+            <div><B>Peer Review</B></div>
+            <div class="flex-container" ondragover={allowDrop} ondrop={drop}>
+                <div id="ToDo4" class="box completed" draggable="true" ondragstart={drag}>
+                {header}
+                </div>
+            </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <div class="slds-card" style="height:1000px; width:200px">
+            <div>4</div>
+            <div><B>QA Testing</B></div>
+            <div class="flex-container" ondragover={allowDrop} ondrop={drop}>
+                <div id="ToDo6" class="box completed" draggable="true" ondragstart={drag}>
+                {header}
+                </div>
+            </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <div class="slds-card" style="height:1000px; width:200px">
+            <div>5</div>
+            <div><B>Done</B></div>
+            <div class="flex-container" ondragover={allowDrop} ondrop={drop} draggable="true" ondragstart={drag}>
+                
+            </div>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+</template>

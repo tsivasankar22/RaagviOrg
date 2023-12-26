@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="currentPageNumber" type="Integer" default="1"/>
+    <aura:attribute name="TabId" type="String" default="tab1" />
+    <div class="slds-box slds-box_xx-small slds-text-align_center" style="background-color: white; height : auto; width : 35%;">
+        <div aura:id ="data-entry">
+           
+            <lightning:tabset variant="default" selectedTabId="{!v.TabId}" >
+                <lightning:tab  aura:id="tab1" tabindex="1" id="tab1" >
+                    <lightning:carouselImage src = "{!$Resource.SalesforceImg4}" >
+                    </lightning:carouselImage>
+                </lightning:tab>
+                <lightning:tab  aura:id="tab2" tabindex="2" id="tab2" >
+                    <lightning:carouselImage src = "{!$Resource.SalesforceImg2}">
+                    </lightning:carouselImage>
+                </lightning:tab>
+                <lightning:tab  aura:id="tab3" tabindex="3" id="tab3">
+                    <lightning:carouselImage src = "{!$Resource.SalesforceImg3}">
+                    </lightning:carouselImage>
+                </lightning:tab>
+            </lightning:tabset>
+           
+        </div>
+       
+        <div class="slds-clearfix">
+            <div class="slds-float_left">
+                <lightning:button disabled="{!v.TabId == 'tab1'}" variant="brand" label="Back" onclick="{!c.Back}" />
+            </div>
+            <div class="slds-float_right">
+                <lightning:button variant="brand" disabled="{!v.TabId == 'tab3'}" label="Next" onclick="{!c.Next}" />
+            </div>
+        </div>
+    </div>
+</aura:component>

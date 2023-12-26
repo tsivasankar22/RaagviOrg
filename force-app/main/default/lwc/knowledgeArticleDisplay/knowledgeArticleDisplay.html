@@ -1,0 +1,21 @@
+<template>
+    <template for:each={knowledges} for:item="data">						
+        <div key={data.Id}>
+            <div class="slds-col slds-p-around_small">
+                <div class="data-card">
+                    <lightning-card title={data.Title}  style = "width:300px;height:500px">      
+                            <div class="slds-grid ">
+                                <div class="slds-col slds-p-horizontal_medium">
+                                <p > 
+                                    Title : {data.Title}<br/>
+                                    UrlName : {data.UrlName}<br/>
+                                    Summary : {data.Summary}
+                                </p>
+                                </div>
+                            </div>
+                    </lightning-card>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

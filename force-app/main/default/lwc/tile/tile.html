@@ -1,0 +1,27 @@
+<!-- <template>
+    <lightning-card title="Contact List">
+        <ul>
+            <template for:each={contactList} for:item="contact">
+                <li key={contact.fields.Id.value}>
+                    {contact.fields.Name.value}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template> -->
+<!-- wireGetRecordDynamicContact.html -->
+<template>
+    <lightning-card title="My Contact Record" icon-name="standard:contact">
+      <template lwc:if={contact.data}>
+        <div class="slds-m-around_medium">
+          <p>{name}</p>
+          <p>{title}</p>
+          <p><lightning-formatted-phone value={phone}></lightning-formatted-phone></p>
+          <p><lightning-formatted-email value={email}></lightning-formatted-email></p>
+        </div>
+      </template>
+      <template lwc:if={contact.error}>
+        <c-error-panel errors={contact.error}></c-error-panel>
+      </template>
+    </lightning-card>
+  </template>

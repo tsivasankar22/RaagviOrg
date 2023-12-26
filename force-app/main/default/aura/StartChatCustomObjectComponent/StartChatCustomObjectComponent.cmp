@@ -1,0 +1,56 @@
+<aura:component controller="StartChatCustomObjectController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="CaseInfoAc" type="Case" default="{'sobjectType': 'Case'}"/>
+     <aura:attribute name="CaseItrt" type="Case[]"/>    
+    <div class="slds">
+           
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                   <label class="slds-form-element__label">First Name</label>
+                   <div class="slds-form-element__controller"><ui:inputText aura:id="fName" value="{!v.CaseInfoAc.SuppliedName}" class="slds-input" placeholder=""/></div>
+                </div>    
+            </div>
+               
+           <div class="slds-grid slds-wrap"> 
+               <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                 <div class="slds-form-element"> 
+                        <label class="slds-form-element__label">Email</label>
+                        <div class="slds-form-element__controller">
+                            <ui:inputText aura:id="Email" value="{!v.CaseInfoAc.ContactEmail}" class="slds-input" placeholder=""/>
+                         </div>
+                  </div> 
+              </div> 
+           </div>
+               
+              <div class="slds-grid slds-wrap"> 
+               <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                 <div class="slds-form-element"> 
+                        <label class="slds-form-element__label">Phone</label>
+                        <div class="slds-form-element__controller">
+                            <ui:inputText aura:id="phone" value="{!v.CaseInfoAc.ContactPhone}" class="slds-input" placeholder=""/>
+                         </div>
+                  </div> 
+              </div> 
+           </div> 
+        
+        
+         <div class="slds-grid slds-wrap"> 
+               <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                 <div class="slds-form-element"> 
+                        <label class="slds-form-element__label">Comments</label>
+                        <div class="slds-form-element__controller">
+                            <ui:inputText aura:id="Comments" value="{!v.CaseInfoAc.Comments}" class="slds-input" placeholder=""/>
+                         </div>
+                  </div> 
+              </div> 
+           </div>
+        
+        
+        <div class="slds-text-align--center slds-m-top--medium">
+            <button class="slds-button slds-button--brand" onclick="{!c.submitStudentInfo}">ChatWithAgent</button>
+        </div>
+    
+<br/><br/>
+
+          
+    </div>
+</aura:component>

@@ -1,0 +1,9 @@
+<template>
+    <template if:true={showNotificationTypePicklist}>
+        <lightning-combobox name="notificationtype" label="Select Notification Type" placeholder="Select Notification type"
+        options={notificationOptions} onchange={handleNotificationTypeChange}></lightning-combobox>
+    </template>
+    <div class="slds-m-vertical_medium">
+        <lightning-button variant="brand" label="Send Notification" title="Send Custom Notification" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </div>
+</template>

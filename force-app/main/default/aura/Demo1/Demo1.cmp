@@ -1,0 +1,67 @@
+<aura:component implements="lightningsnapin:prechatUI" description="Sample custom pre-chat component for Embedded Chat. Implemented using Aura.">
+    <!-- Implementing "lightningsnapin:prechatUI" makes this component available as Pre-chat component in ESD set up -->
+    
+    <lightningsnapin:prechatAPI aura:id="prechatAPI"/>
+    <!-- Contains methods for getting pre-chat fields, starting a chat, and validating fields -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- Handler for when this component is initialized -->
+    
+    <lightning:messages/><!-- This Event fires when there is a message to popup -->
+    
+    <aura:locator target="startButton" description="Pre-chat form submit button."/>
+    
+    <!--
+    <aura:attribute name="firstName" type="String"/>
+    <aura:attribute name="lastName" type="String"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="detailsFilled" type="boolean" default="false"/>
+    <aura:attribute name="TnCText" type="String" default=""/> -->
+    
+    <lightning:layout>
+        <p>Please enter information below to help us help you.</p>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+            <lightning:input aura:id="chatField"
+                             type="inputSplitName"
+                             name="FirstName"
+                             label="First Name"
+                             required="true"
+                             messageWhenValueMissing="Please enter your first name"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+            <lightning:input aura:id="chatField"
+                             type="inputSplitName"
+                             name="LastName"
+                             label="Last Name"
+                             required="true"
+                             messageWhenValueMissing="Please enter your last name"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+            <lightning:input aura:id="chatField"
+                             type="inputEmail"
+                             name="Email"
+                             label="Email"
+                             required="true"
+                             messageWhenValueMissing="Please enter your email"
+                             messageWhenPatternMismatch="Email format username@domain.com."
+                             pattern=".+@+.+com"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small" size="6">
+            <lightning:textarea aura:id="chatField"
+                                type="inputText"
+                                rows="4" 
+                                cols="35"
+                                name="Subject"
+                                minlength="10"
+                                maxlength='200'
+                                required="true"
+                                label="How can I help to You..?"
+                                messageWhenTooShort="A minimum of 10 characters are needed."
+                                messageWhenValueMissing="Message is required"/>
+        </lightning:layoutItem>
+        <lightning:button label="START CHAT" 
+                          title="startButton" 
+                          onclick="{!c.startChatting}"
+                          />
+    </lightning:layout>
+</aura:component>

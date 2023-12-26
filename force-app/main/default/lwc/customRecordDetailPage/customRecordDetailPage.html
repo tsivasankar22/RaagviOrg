@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>  
+            <!-- Replace the record ID with your own -->
+            <template if:true={outputfields}>
+                <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                    <span class="slds-box slds-theme_default input-container">
+                      <div class="field-container">
+
+                        <lightning-output-field field-name="Name"></lightning-output-field>
+                        <!-- <template if:true={isEditEnabled}>
+                            <lightning-icon icon-name="utility:edit" alternative-text="edit" title="edit" size="x-small" class="enabled-icon" onmouseover={disableEditMouseOver} onmouseout={disableEditOut} onclick={handleClick}></lightning-icon>
+                        </template> -->
+                        <template if:false={isEditDisabled}>
+                          <lightning-icon icon-name="utility:edit" alternative-text="edit" title="edit" size="x-small" class="disabled-icon" onmouseenter={enableEditMouseOver} onmouseleave={enableEditOut}></lightning-icon>
+                      </template>
+
+                      </div>                
+                      <div class="field-container">
+                        <lightning-output-field field-name="Phone"></lightning-output-field>
+                        <lightning-icon icon-name="utility:edit" alternative-text="edit" title="edit" size="x-small" class="iconDesign" onclick={handleClick} onmouseover={enableEdit} onmouseout={disableEdit} disabled="" aria-hidden="true"></lightning-icon>
+                      </div>
+                    </span>
+                  </lightning-record-view-form>   
+                                
+            </template>
+            <template if:true={clickValue}>
+                <div class="slds-box slds-theme_default input-container">
+                    <lightning-input label="Account Name" value={account.Name} onchange={handleChange}></lightning-input>&scnap;&scnap;
+                    <lightning-input label="Account Phone" value={account.Phone} onchange={handleChange}></lightning-input>
+                </div>
+            </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,23 @@
+<aura:component controller="AccountSearchController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="accountNum" type="String" />
+    <aura:attribute name="searchResults" type="List" />
+    <aura:attribute name="selectedAccountIds" type="List" />
+   
+    <lightning:messageChannel type="AuraToLwc__c" aura:id="sampleMessageChannel"/>
+
+    <lightning:card title="Aura Publish component" iconName="standard:account">
+        <div class="slds-m-top_small slds-p-around_medium">
+            <lightning:input type="text" name="accountNumber" value="{!v.accountNum}" id="accountId" onchange="{!c.searchAccounts}" />
+        </div>
+    
+        <aura:iteration items="{!v.searchResults}" var="account">
+            <div class="slds-m-top_small">
+                <lightning:input type="checkbox" name="accountCheckbox" label="{!account.Name}" value="{!account.Id}" onchange="{!c.handleCheckboxChange}" />
+            </div>
+        </aura:iteration>
+        
+        <div class="slds-m-top_small slds-m-left_medium">
+            <lightning:button label="Publish" variant="brand" title="Publish" onclick="{!c.publishAccounts}" />
+        </div>
+    </lightning:card>
+</aura:component>

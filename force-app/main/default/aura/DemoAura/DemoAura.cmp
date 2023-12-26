@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <div class="mainWrap">
+       <body>
+           <h1> salesforce</h1>
+           <img src ="{!$Resource.SalesforceImg4}"></img>
+           <h1> salesforce</h1>
+           <img src ="{!$Resource.SalesforceImg2}"></img>
+           <h1> salesforce</h1>
+           <img src ="{!$Resource.SalesforceImg3}"></img>
+        </body>
+    </div>
+</aura:component>

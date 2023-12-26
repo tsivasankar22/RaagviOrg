@@ -1,0 +1,43 @@
+<!-- <template>
+    <lightning-card>
+        <template if:true={accountRecord}>
+            <lightning-input 
+                label="First Name"               
+                value={accountRecord.Name}>
+            </lightning-input>    
+            <lightning-input 
+            label="Phone"                       
+            value={accountRecord.Phone}>
+        </lightning-input> 
+        <lightning-combobox
+            name="Rating"
+            label="Rating"
+            value={accountRecord.Rating}
+           ></lightning-combobox>
+            </template>
+    </lightning-card>
+</template> -->
+<template>
+    <lightning-card title="Account Details">
+        <template if:true={accountRecord}>
+            <template if:false={isEditing}>
+                <p>Description__c: {accountRecord.Description__c}</p>
+                <p>Description: {accountRecord.Description}</p>
+                <lightning-button label="Edit" onclick={handleEditClick}></lightning-button>
+            </template>
+            <template if:true={isEditing}>
+                <lightning-input 
+                    label="Description"               
+                    value={editedFields.Description}
+                    onchange={handleFieldChange}>                   
+                </lightning-input>    
+                <lightning-input 
+                    label="Description__c"                       
+                    value={editedFields.Description__c}
+                    onchange={handleFieldChange}>
+                </lightning-input>
+                <lightning-button label="Save" onclick={handleSaveClick} ></lightning-button>
+            </template>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+.selected-option {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.additional-text {
+    margin-top: 16px;
+    white-space: pre-line; /* Ensures that line breaks in the text are respected */
+}

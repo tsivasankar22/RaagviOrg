@@ -1,0 +1,19 @@
+<aura:component implements="forceCommunity:layout" access="global">
+     <aura:attribute name="isDesktop" type="Boolean" default="{!$Browser.formFactor != 'PHONE'}" />
+    <aura:attribute name="container1" type="Aura.Component[]"/>
+    <aura:attribute name="container2" type="Aura.Component[]"/>
+    <aura:attribute name="container3" type="Aura.Component[]"/>
+    
+        <div class="slds-grid slds-gutters slds-wrap ">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12">
+            {!v.container1}
+        </div>
+    
+        <div class="{! 'slds-col slds-size_1-of-1 slds-medium-size_4-of-12 ' + (v.isDesktop ? '' : 'slds-order_2') }">
+             {!v.container2}
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12">
+            {!v.container3}
+        </div>
+    </div>
+</aura:component>

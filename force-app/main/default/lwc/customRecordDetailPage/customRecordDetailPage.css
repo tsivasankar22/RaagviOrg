@@ -1,0 +1,26 @@
+.input-container {
+    display: flex;
+    align-items: center; /* Vertical alignment */
+    
+  }
+  
+  .field-container {
+    display: flex;
+    align-items: center;
+    margin-right: 300px; /* Add some spacing between field and icon */
+  }
+  .iconDesign{
+    margin-left: 150px;
+  }
+  /* Regular styling for enabled icons */
+  .enabled-icon {
+    /* Your regular icon styling */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+  }
+  
+  /* Styling for visually disabled icons */
+  .disabled-icon {
+    opacity: 0.5; 
+    pointer-events: none; 
+  }
+  

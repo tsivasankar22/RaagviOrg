@@ -1,0 +1,22 @@
+<template> 
+    <lightning-card  variant="Narrow"  title="Generate PDF">
+        <div class="slds-p-horizontal_medium">
+            <lightning-combobox name="types"
+                                label="Type"
+                                value={value} 
+                                options={typeOptions} 
+                                onchange={handleTypeChange}> 
+            </lightning-combobox>
+            <br/> 
+        </div>
+        <div>
+            <lightning-button variant="brand" label="Generate PDF And Send Email"
+                              title="Primary action"
+                              onclick={generatePDF} 
+                              class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+        
+    </lightning-card>
+    
+</template>

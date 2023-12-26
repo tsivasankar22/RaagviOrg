@@ -1,0 +1,25 @@
+:host{   
+    --slds-c-card-color-background: rgb(180, 98, 98);
+}
+
+.main-container {
+    --slds-c-card-color-background: white;   
+}
+
+.my-card-child {
+    border: 2px solid rgb(124, 79, 79);
+    border-radius: 6px;
+    height: 160px;
+    width : 210px;
+    margin: 2px;
+    display: flex;
+}
+
+.input{
+    width: 45px;
+    text-align: right;
+}
+
+.quantity{
+    text-align: left;
+}

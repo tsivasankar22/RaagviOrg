@@ -1,0 +1,39 @@
+.boxpage{
+    width: 35.2cm;
+    height: 10cm;
+   background-color:rgb(255, 255, 255);
+   display:table;
+}
+.centerbox{
+    padding-left: 145px;
+    width: 67%;
+    margin: 15px auto;
+}
+
+.container{
+    display: flex;
+   
+    background-color:rgb(255, 255, 255);
+}
+.childComponent{
+    padding-left: 2cm;
+    padding-top: 19px;
+    height: 6cm;
+    width: auto;
+    border-color: black;
+
+}
+.footer{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.prevbutton{
+    padding-left: 14cm;
+}
+.nextbutton{
+    padding-right: 15cm;
+}
+.current-step {
+    background-color: blue;
+  }

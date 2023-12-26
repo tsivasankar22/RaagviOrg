@@ -1,0 +1,10 @@
+<apex:page standardController="Contact">
+    <apex:form>
+        <apex:pageBlock title="Contact Information">
+            <apex:pageBlockSection>
+                <apex:inputField value="{!Contact.RFS2__c}" />
+              
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

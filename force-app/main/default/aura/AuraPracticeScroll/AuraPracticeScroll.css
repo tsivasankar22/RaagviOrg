@@ -1,0 +1,10 @@
+.THIS#div1{
+
+       border: 5px solid;
+    border-radius: 6px;
+    background: beige;
+    width: 1366px;
+    height: 100px;
+    margin: 5px;
+    padding: 2px;
+}

@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,forceCommunity:layout,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="container1" type="Aura.Component[]"/>
+        <div class="slds-grid slds-gutters slds-wrap ">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12">
+            {!v.container1}
+        </div>     
+    </div>
+</aura:component>

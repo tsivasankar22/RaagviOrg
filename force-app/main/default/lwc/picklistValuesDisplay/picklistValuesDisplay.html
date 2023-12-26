@@ -1,0 +1,18 @@
+<template>
+        <div class="slds-col slds-col_padded" style="display: flex">
+            <template for:each={transformedData} for:item="item">
+                <div key={item}>
+                    <lightning-combobox
+                        label={item.fieldName}
+                        options={item.options}
+                        data-fieldname={item.fieldName}
+                        onchange={handleChange}
+                     ></lightning-combobox>
+                </div>
+            </template>
+        </div>
+        <template if:true={saveButton}>
+        <lightning-button label="Save" title="Save" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </template>
+</template>
+

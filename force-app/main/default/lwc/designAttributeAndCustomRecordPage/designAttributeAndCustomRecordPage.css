@@ -1,0 +1,16 @@
+.account{
+    height: 46px;
+    background-color:rgb(223, 219, 219);
+    margin-bottom: 2px;
+}
+.boxcontainer{
+    background-color: #fff;
+    height: auto;
+    width: 17cm;
+}
+.box{
+    background-color: white;
+    padding-left: 17px;
+    /* padding-right: 8cm; */
+    width: 19cm;
+}

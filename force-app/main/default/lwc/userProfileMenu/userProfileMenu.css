@@ -1,0 +1,10 @@
+body {
+    background-color: transparent;
+}
+.slds-table
+{
+    background-color: transparent;
+}
+.my-round-button {
+    --sds-c-button-radius-border: 20px;
+}

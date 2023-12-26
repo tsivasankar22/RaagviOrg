@@ -1,0 +1,83 @@
+.boxpage{
+    width: 35.2cm;
+    height: 10cm;
+   background-color:rgb(255, 255, 255);
+}
+.heading{
+    padding-top: 1cm;
+    padding-left: 1cm;
+}
+.round{
+    width:1.6rem;
+    height:1.6rem;
+    border:1px solid black;
+    border-radius:50%;
+    padding-left:0.5rem;
+}
+ .circle-parent{
+    width: 35px;
+    display: inline-grid;
+    white-space: nowrap;
+}
+ .circle {
+    height: 20px;
+    width: 162px;
+    border-radius: 0%;
+    border: 2px solid #99afa0;
+    display: inline-block;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 20.3px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top: 50px solid transparent;
+    border-left: 100px solid rgb(255, 255, 255);
+    border-bottom: 50px solid transparent;
+  
+   
+ }
+.cicrle-top-padding-step{
+    padding-top: 5px;
+}
+.text{
+   margin-top: 4px;
+}
+.nextButton{
+    margin-top: 30px;
+ }
+.horizontal-line{
+    width: 3.5rem;
+    border: 1.5px solid darkgray;
+    margin-top: 13px;
+}
+.container{
+    display: flex;
+  
+    background-color:rgb(255, 255, 255);
+}
+.addCssClass{
+    background-color: blue;
+    color: white;
+}
+.removeCssClass{
+    background-color: white;
+    color: white;
+}
+ 
+ 
+
+.hide-horizontal-line    {
+    display: none;
+}
+.add-color{
+    width: 30px;
+    height: 28px;
+    display: inline-grid;
+    white-space: nowrap;
+    border-radius: 50%;
+   
+    background-color: blue;
+}
+.addColor{
+    background-color: blue;
+    color: white;
+}

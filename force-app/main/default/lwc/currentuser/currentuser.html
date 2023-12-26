@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="User Details" icon-name="standard:user">
+    
+    <div class="slds-m-around_medium">
+       
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" width="100%" border="1"  cellpadding="5" cellspacing="0" style="border-collapse:collapse; font-weight:bold;">
+            
+            <tbody>
+
+            <tr>
+                <td style="background:#eee;">Name</td>
+                <td style="color:#ff8000;">{currentUserName}</td>
+            </tr>
+
+            <tr>
+                <td style="background:#eee;">UserName</td>
+                <td style="color:#ff8000;">{currentUserUserName}</td>
+            </tr>
+
+            <tr>
+                <td  style="background:#eee;">Phone</td>
+                <td>
+                    <div>
+                    <lightning-input class = "inputvalues" style="color:#ff8000;" onchange={changePhone} value={currentUserPhone} disabled={isDisabled} max-length="10"></lightning-input>
+                        <div style="position:absolute;top:0rem;right:1rem">
+                            <lightning-icon icon-name="utility:edit" onclick={handleEdit} size="xx-small"  disabled ={isDisabledsave}></lightning-icon>
+                        </div>
+                    </div>
+                    </td>
+            </tr> 
+
+            <tr>
+                <td style="background:#eee;">Email</td>
+                <td style="color:#ff8000;"> {currentUserEmailId}</td>
+            </tr>
+
+            </tbody>
+
+        </table>
+     
+    </div>
+    <template if:true={saveModelPopUp}>
+    <div class="slds-modal__footer">
+        <lightning-button variant="brand" label="Cancel" title="Cancel" onclick={closeModal} ></lightning-button>&nbsp;   
+        <lightning-button label="Save" title="save" variant="brand" onclick={handlesave} class="slds-float_right" disabled ={isDisabled} ></lightning-button>
+    </div>
+    </template>
+    </lightning-card> 
+</template>

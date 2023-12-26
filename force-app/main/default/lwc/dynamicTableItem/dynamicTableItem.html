@@ -1,0 +1,244 @@
+<template>
+ 
+        <div if:true={isTextField}>
+            {cellValue}
+        </div>
+        <div if:true={isDateField}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <lightning-formatted-date-time value={cellValue}></lightning-formatted-date-time>
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                            title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit'></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} type="Date" label={cellLabel} onfocusout={handlerChange}></lightning-input>
+            </template>
+        </div>
+        <div if:true={isDateTimeField}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <lightning-formatted-date-time value={cellValue}
+                            year="2-digit"
+                            month="short"
+                            day="2-digit"
+                            hour="numeric"
+                            weekday="long"
+                            era="short"></lightning-formatted-date-time> 
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                            title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit'></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} label={cellLabel} onchange={handlerChange} type="DateTime"></lightning-input>
+            </template>
+        </div>
+        <div if:true={isCurrencyField}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <lightning-formatted-number label="Sub Total" value={cellValue}
+                            format-style="currency" currency-code="INR" currency-display-as="symbol"></lightning-formatted-number>
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                            title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit'></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} type="Currency" label={cellLabel} onfocusout={handlerChange}></lightning-input>
+            </template>
+        </div>
+        <template if:true={isNumberField}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <lightning-formatted-number value={cellValue}></lightning-formatted-number>
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                            title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit'></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} data-field={fieldName} label={cellLabel} type="number" step="any" onfocusout={handlerChange}></lightning-input>
+            </template>
+        </template>
+        <div if:true={isReferenceField}>
+            <lightning-formatted-url value={cellValue} label={cellLabel} target="_blank" ></lightning-formatted-url>     
+        </div>
+        <div if:true={isLookup}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <lightning-formatted-url value={cellValue} label={cellLabel} target="_blank" style="word-wrap: break-word;"></lightning-formatted-url>
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit' ></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-record-edit-form object-api-name={sObjectName}>
+                    <lightning-input-field field-name={pickvalue} value={newcellValue} data-id={recId} onchange={handlerChange}></lightning-input-field>
+                  </lightning-record-edit-form>
+            </template>
+        </div>
+        <div if:true={isLongtextArea}>
+            <template if:false={input}>
+                <template if:false={input}>
+                    <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                        <div style="word-wrap: break-word;">
+                            <lightning-formatted-rich-text value={cellValue}></lightning-formatted-rich-text>
+                        </div>
+                        <div class="slds-button slds-button_icon slds-cell-edit__button"
+                            title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                        <lightning-icon
+                            class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                            icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                            title='edit'></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={input}>
+                <lightning-textarea value={cellValue} data-id={recId} data-field={fieldName} label={cellLabel} onfocusout={handlerChange}></lightning-textarea>
+            </template>
+        </div>
+        <div if:true={isBooleanField}>
+            <lightning-input type="Checkbox" checked={cellValue}  data-id={recId} label={cellLabel} onchange={handlerChange}></lightning-input>
+        </div>
+        <div if:true={isTimeField}>
+            
+            <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-time value={cellValue}></lightning-formatted-time>
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} label={cellLabel} type="time" onchange={handlerChange}></lightning-input>
+            </template>
+        </div>
+        <div if:true={isURLField}>
+            <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-url value={cellValue}  label={cellLabel} target="_blank" ></lightning-formatted-url >
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                    title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} label={cellLabel} onfocusout={handlerChange}></lightning-input>
+            </template>
+        </div>
+        <div if:true={isEmailField}>
+             <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-email value={cellValue} hide-icon></lightning-formatted-email>
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+           </template>
+           <template if:true={input}>
+            <lightning-input value={cellValue} data-id={recId} data-field={fieldName} label={cellLabel} onfocusout={handlerChange}></lightning-input>
+           </template>
+        </div>
+        <div if:true={isPicklist}>
+            <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-text value={cellValue} ></lightning-formatted-text>
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+            </template>
+            <template if:true={input}>
+                <lightning-record-edit-form object-api-name={sObjectName} data-id={recId}>
+                    <lightning-input-field field-name={picklistvalue} value={cellValue} data-id={recId} onchange={handlerChange}></lightning-input-field>
+                  </lightning-record-edit-form>
+            </template>
+        </div>
+        <div if:true={isPhoneField}>
+            
+            <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-phone value={cellValue} ></lightning-formatted-phone>
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+            </template>
+            <template if:true={input}>
+                <lightning-input value={cellValue} data-id={recId} data-field={fieldName} label={cellLabel} onfocusout={handlerChange}></lightning-input>
+            </template>
+        </div>
+        <div if:true={isPercentageField}>
+            <template if:false={input}>
+                <div class="slds-truncate slds-grid slds-grid_align-spread">            
+                    <lightning-formatted-number value={cellValue} format-style="percent" maximum-fraction-digits="2"></lightning-formatted-number>
+                    <div class="slds-button slds-button_icon slds-cell-edit__button"
+                        title="Edit" data-id={recId} data-field={fieldName} value={cellValue} onclick={editHandler}>
+                    <lightning-icon
+                        class="slds-button__icon slds-button__icon_hint slds-button__icon_edit"
+                        icon-name='utility:edit' alternative-text='edit' size='xx-small'
+                        title='edit'></lightning-icon>
+                    </div>
+                </div>
+            </template>
+            <template if:true={input}>
+                <lightning-input  value={cellValue} data-id={recId} type="Percentage" data-field={fieldName} label={cellLabel} onfocusout={handlerChange}></lightning-input>
+            </template>
+     </div>
+ 
+ </template>

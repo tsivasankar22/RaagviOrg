@@ -1,0 +1,22 @@
+<template>
+    
+    <div class="slds-p-around_medium lgc-bg">
+        <table class="slds-table slds-table_cell-buffer " width="100%"   style="font-weight:bold;">
+        <tbody>
+        <tr>    
+        <td>
+            <lightning-button-menu icon-name="utility:user" alternative-text="Show menu" class="my-round-button" onselect={handleOnselect}>
+                <lightning-menu-item value="Home" label="Home"></lightning-menu-item>
+                <lightning-menu-item value="Profile" label="Profile"></lightning-menu-item>
+                <lightning-menu-item value="Settings" label="Settings"></lightning-menu-item>
+                <lightning-menu-item value="FeedBack" label="FeedBack"></lightning-menu-item>
+                <lightning-menu-item value="LogOut" label="LogOut"></lightning-menu-item>            
+            </lightning-button-menu>
+        </td>
+        <td style="color:#ff850b;">{currentUserName}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    
+</template>

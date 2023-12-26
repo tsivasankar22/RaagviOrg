@@ -1,0 +1,37 @@
+<template>
+            <lightning-card >   
+                <div class="slds-grid slds-wrap">
+                  <lightning-combobox class="slds-var-m-around_small"
+                      name="Filter"
+                      label="Filter"
+                      value={selectedData}
+                      placeholder="Select Type"
+                      options={dataOptions}
+                      onchange={handleDataChange}>
+                  </lightning-combobox>
+              </div>
+                <div class="search-container">
+
+                    <div class="searchbar">
+                      <lightning-input type="search" onchange={handleSearchDeals}  placeholder="Search..." value={dealsName}></lightning-input>
+                  </div>
+                  </div><br/>
+                  <div style="width: auto;">
+                      <template if:true={data}>
+                          <lightning-datatable
+                                               class="datatable-full-size"
+                                               data={data}
+                                               columns={columns}
+                                               key-field="id"
+                                               sorted-by={sortBy}
+                                               sorted-direction={sortDirection}
+                                               onsort={handleSortDealsData}
+                                               show-row-number-column="true"
+                                               onrowaction={handleonrowchange}
+                                               hide-checkbox-column="true"></lightning-datatable>
+                                               <!-- column-widths-mode="auto">
+                          </lightning-datatable> -->
+                      </template>
+                  </div>
+             </lightning-card> 
+  </template>

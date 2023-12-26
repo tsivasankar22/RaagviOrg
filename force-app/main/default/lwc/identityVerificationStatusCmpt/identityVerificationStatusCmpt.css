@@ -1,0 +1,7 @@
+.slds-form-element__control .slds-radio{
+    display: inline !important;
+}
+.label span{
+margin-right: 2;
+padding-right:3px;
+}

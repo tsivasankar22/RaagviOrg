@@ -1,0 +1,19 @@
+<template>
+    <lightning-combobox
+        name="recordType"
+        label="Record Type"
+        value={selectedRecordType}
+        options={recordTypes}
+        onchange={handleRecordTypeChange}>
+    </lightning-combobox>
+    <lightning-datatable
+        data={data}
+        columns={columns}
+        key-field="Id"
+        hide-checkbox-column
+        sorted-by={sortedBy}
+        sorted-direction={sortedDirection}
+        onsort={handleSort}
+        onrowaction={handleRowAction}>
+    </lightning-datatable>
+  </template>

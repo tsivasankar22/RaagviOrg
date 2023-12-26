@@ -1,0 +1,66 @@
+<apex:page Controller="GroceriesSearchHandler" renderAs="pdf">
+    <div class="header">
+              <div>{!TODAY()}</div>
+    </div>
+    
+  <div style="text-align:center;">  
+    <apex:image id="theImage" value="{!$Resource.projectoo7logo}" width="200" height="200" alt="Description of image here"/> 
+    <h1>Order Invoice</h1>
+  </div> 
+  <hr/>
+           
+  <div style="width: 100%; overflow: hidden;">
+    <div style="text-align:left;width: 180px; float: left;">
+      <p><b>Name :</b> {!usr.Name}</p>  
+    <p><b>Email :</b> {!usr.Email}</p>
+    <p><b>Phone Number :</b> {!usr.Phone} </p>
+    </div>
+    <div style="text-align:center;">
+      <p>
+          <b> Delivary Address:</b>
+          {!address.Name} ,<br/>  
+          {!address.Street__c} ,
+          {!address.City__c} ,<br/>
+          {!address.State__c} ,<br/>
+          {!address.Country__c} ,
+          {!address.Postal_Code__c} .
+
+        </p>
+        <p><b>Order Number:</b>{!orderData.Name}</p>
+    </div>
+  </div>
+
+  <hr/>
+  <apex:form >
+       <apex:pageBlock title="Bill Item Details">
+             <table border="1px">
+                   <tr>
+                       <th>Name</th>
+                       <th>Barnd</th>
+                       <th>Quan</th>
+                       <th>Price/Quan</th>
+                       <th>Amount</th>
+                   </tr>                    
+                <apex:repeat value="{!grocerie}" var="Items" >
+                  <tr>                    
+                      <td>{!Items.Order_Name__c}</td>                       
+                      <td>{!Items.Order_Brand__c}</td>
+                      <td>{!Items.Ordered_Quantity__c}</td>
+                      <td>{!Items.Price_Per_Quantity__c}</td>    
+                      <td>{!Items.Order_Amount__c}</td>
+                  </tr>
+                </apex:repeat>
+                <tr>
+                  <td>Totals :</td>
+                  <td> </td>
+                  <td>{!orderData.Order_Total_Quantity__c} </td>
+                  <td> </td>
+                  <td>{!orderData.Order_Total_Price__c}</td>
+                </tr>
+            </table>
+       </apex:pageBlock>
+  </apex:form>
+    <div class="footer">
+        <div style="text-align:center;"><b>Thanks For Visit Project007!<br/>Visit Again</b><br/>https://rtsandbox-dev-ed.my.site.com/Project007</div>
+    </div>
+</apex:page>

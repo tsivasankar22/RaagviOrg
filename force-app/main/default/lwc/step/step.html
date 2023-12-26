@@ -1,0 +1,21 @@
+<template>
+        <lightning-layout> 
+            <lightning-card>
+            <template for:each={steps} for:item="step" for:index="index">
+            <lightning-layout-item class="slds-p-right_x-small"  key={step.label} >
+                <!-- <div style="text-align:center"> -->
+                    <!-- <div class="circle-parent"> -->
+                        <div class="circle cicrle-top-padding" data-id={step.value}>
+                              <div class="cicrle-top-padding-step" >{currentstepindex}{step.label}</div>
+                        </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+            </lightning-layout-item>
+            <!-- <lightning-layout-item class="slds-p-right_x-small"  key={step.label}>
+                <div class="text">{step.label}</div>
+            </lightning-layout-item> -->
+          
+            </template>
+        </lightning-card>
+        </lightning-layout>   
+</template>

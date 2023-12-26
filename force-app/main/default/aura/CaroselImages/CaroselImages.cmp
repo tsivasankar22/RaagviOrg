@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller = "carouselImagesController" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "imagelist" type = "list"/>
+    <aura:attribute name="selTabId" type="String" default="tab1" />
+    <div class="slds-box  slds-text-align_center" style="background-color: skyblue; height : auto; width : 100%;">
+        <h1><B><I>  Welcome! </I></B></h1><br/>
+        <h2><B><I> What You Get From Here </I></B></h2>
+        <lightning:carousel disableAutoRefresh="false" disableAutoScroll="false">
+            <aura:iteration items = "{!v.imagelist}" var ="obj">
+                <lightning:carouselImage src="{!'https://rtsandbox-dev-ed.my.site.com/Project007/sfc/servlet.shepherd/document/download/' + obj.Id}"/>
+            </aura:iteration>
+        </lightning:carousel>
+    </div>
+</aura:component>

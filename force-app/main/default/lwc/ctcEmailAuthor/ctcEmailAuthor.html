@@ -1,0 +1,39 @@
+<template>
+    <!-- modal start -->
+        <!-- modal header start -->
+        <header class="slds-modal__header">
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Send Email</h2>
+        </header>
+        <!-- modal body start -->
+        <div class="slds-modal__content slds-p-around_medium " id="modal-content-id-1">
+            <lightning-input name="progress" value={toAddress} label="To" placeholder="Email"
+                onchange={handleToEmailAddress}></lightning-input>
+            <lightning-input label="From" placeholder="Email" value={fromAddress} onkeyup={handleChange} onchange={handleChange}>
+            </lightning-input>
+            <lightning-combobox label="Email Template Folder" placeholder="Select Email Template Folders"
+                options={getTempList} onchange={selectedEmailTempFolder} class="validate" required>
+            </lightning-combobox>
+            <lightning-combobox label="Email Template" placeholder="Select Email Template" options={emailTempList}
+                onchange={selectedEmailTemp} class="validate" required>
+            </lightning-combobox>
+            <lightning-input label="Subject" placeholder="Subject" onchange={handleSubject} value={subject}>
+            </lightning-input></br>
+            <lightning-input-rich-text value={body}></lightning-input-rich-text></br>
+            <lightning-file-upload label="Attach Files" name="uploadFile" accept={acceptedFormats} record-id={recordId}
+                onuploadfinished={handleUploadFinished} multiple>
+            </lightning-file-upload></br>
+            <template if:true={uploadFile}>
+                <template for:each={uploadFile} for:item="fileIterator" for:index="index">
+                    <lightning-pill class="FilesPill" key={fileIterator.contentVersionId} label={fileIterator.name} 
+                        data-id={fileIterator.contentVersionId} data-index={index} onremove={fileRemove}>
+                    </lightning-pill>
+                </template>
+            </template>
+        </div>
+        <!-- modal footer start-->
+        <footer class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" onclick={cancelPopup}>Cancel</button>
+            <button class="slds-button slds-button_neutral" onclick={sendEmail}>Send Email</button>
+        </footer>
+    <!-- modal end -->
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Email Address and Mobile Phone."><br/>
+        <div class="slds-p-horizontal_medium">
+            <div class="slds-text-align_left">
+            <br/>
+                <template if:true={contactModal}>
+                        <template for:each={contactdata1} for:item="select">
+                            <div key={select.Id}>
+
+                                <p class="slds-p-horizontal_large"> 
+                                    <B>Name</B>: {select.Name}<br/>
+                                   <B>Email</B>   : {select.Email}<br/>
+                                    <B>Phone</B> : {select.Phone}
+                                </p>
+                               
+                            </div>
+                        </template>
+                </template>
+            </div>
+            </div>   
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<apex:page controller="DisplayData">
+    <apex:form >
+    <apex:pageBlock id="pb" title="Contacts">
+        <apex:pageBlockTable value="{!Contacts}" var="c" id="pt">
+            <apex:column value="{!c.Name}"/>
+            <apex:column value="{!c.Phone}"/>
+            <apex:column value="{!c.Email}"/>
+        </apex:pageBlockTable>
+        <apex:commandButton value="First" action="{!ssc.First}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb"/>
+        <apex:commandButton value="Next" action="{!ssc.next}" disabled="{!!ssc.hasNext}" reRender="pt,pb"/>
+        <apex:commandButton value="Previous" action="{!ssc.Previous}" disabled="{!!ssc.hasPrevious}" reRender="pt,pb"/>
+        <apex:commandButton value="End" action="{!ssc.last}" disabled="{!!ssc.hasNext}" reRender="pt,pb"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

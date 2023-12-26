@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-col slds-col_padded" style="display: flex">
+        <lightning-combobox
+        name="RF_1_1"
+        label="RF 1 1"
+        value={value}
+        placeholder="Select RF1"
+        options={options}
+        onchange={handleChange} 
+        onclick={savepicklist}></lightning-combobox> &nbsp;&nbsp;
+        <lightning-combobox
+        name="RFS2__c"
+        label="RFS2"
+        value={value}
+        placeholder="Select RFS2"
+        options={RFS2Options}
+        onchange={handleChange}
+        onclick={savepicklist} ></lightning-combobox> &nbsp;&nbsp;
+        <lightning-combobox
+        name="User_Department__c"
+        label="User/Department"
+        value={value}
+        placeholder="Select User/Department"
+        options={UserDepartmentOptions}
+        onchange={handleChange} 
+        onclick={savepicklist}></lightning-combobox> &nbsp;&nbsp;
+        <lightning-combobox
+        name="Originator__c"
+        label="User/Originator"
+        value={value}
+        placeholder="Select Originator"
+        options={OriginatorOptions}
+        onchange={handleChange} 
+        onclick={savepicklist}></lightning-combobox>
+        
+    </div>
+    <lightning-button label="Save" title="Non-primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+</template>

@@ -1,0 +1,61 @@
+<template>
+
+    <div class="slds-p-around_small">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+            aria-labelledby="element-with-table-label other-element-with-table-label">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Product Name">Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Image">Image</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Quantity">Quantity</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Phone">Phone</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={cartData} for:item="con">
+                    <tr class="inputRows" key={con.Id}>
+                        
+                        <td data-label="Opportunity Name">
+                            <p>{con.CartName}</p>
+                        </td>
+                        <td data-label="Opportunity Name">
+                            <p><img src={con.CartImage_URL__c} height="50px" width="50px"></p>
+                        </td>
+                        <td data-label="Account Name">
+                            <lightning-layout-item padding="around-small">
+                                <lightning-input type="text" value={con.quantity} variant="label-hidden"></lightning-input>
+                            </lightning-layout-item>
+                        </td>
+                        <td data-label="Close Date">
+                            <p>{con.CartPhone}</p>
+                        </td>
+                    </tr>
+                </template>
+                <tr class="inputRows" >
+                    <th data-label="Opportunity Name" scope="row">
+                        <p>Total</p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <template for:each={cartData} for:item="con">
+        <lightning-layout-item key={con.Id} size="12" small-device-size="6" medium-device-size="4">
+            <div class="slds-grid slds-gutters">
+                { con.CartName}<br>
+                { con.CartId}<br>
+                { con.CartPhone}<br>
+                { con.CartQuantity__c}<br>
+                <img src={con.CartImage_URL__c}><br/>
+            </div> 
+        </lightning-layout-item>
+    </template> -->
+</template>

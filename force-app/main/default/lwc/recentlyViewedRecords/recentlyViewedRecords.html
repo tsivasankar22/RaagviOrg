@@ -1,0 +1,107 @@
+<template>
+	<div>
+    <lightning-card title="Current User Records">
+        <div  class="slds-float_right"  style="position: relative; top: -40px;left:-67px">
+            <lightning-button variant="Neutral"
+            label="NEW"
+            onclick={insertNewRecord}>
+        	</lightning-button>
+        </div>
+		<div class="slds-table slds-table_bordered slds-table_col-bordered">
+        <lightning-datatable
+            key-field="Id"
+            data={recentlyViewedRecords}
+            columns={columns}
+            sorted-by={sortedBy}
+            sorted-direction={sortedDirection}
+            onsort={handleSort}
+			onrowaction={handleRowAction}
+			onrowselection={handleRowSelection}
+            show-row-number-column
+			hide-checkbox-column="true">
+		</lightning-datatable>
+	</div>
+    </lightning-card>
+	</div>
+	<template if:true={recordDataInsert}>
+	<lightning-card>
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={customHideModalPopup}>
+					<lightning-icon icon-name="utility:close"
+						alternative-text="close"
+						variant="inverse"
+						size="small" >
+					</lightning-icon>
+					<span class="slds-assistive-text">Close</span>
+				</button>
+				<h2 class="slds-text-heading_medium slds-hyphenate">New Record</h2>
+			</header>
+			<div class="container-fluid">
+			<div class="slds-modal__content slds-p-around_medium">
+				<lightning-record-form
+					object-api-name="Residential_Loan_Application__c"
+					fields={fields}
+					columns="2"
+					onsubmit={handleSubmitInsert}
+					oncancel={customHideModalPopup}>
+					<template for:each={fieldRows} for:item="row">
+						<lightning-layout key={row} multiple-rows>
+							<template for:each={row} for:item="field">
+								<lightning-layout-item key={field.fieldApiName} size="6">
+									<lightning-input-field field-name={field.fieldApiName}></lightning-input-field>
+								</lightning-layout-item>
+							</template>
+						</lightning-layout>
+					</template>
+				</lightning-record-form>
+			</div>
+			</div>
+		</div>
+	</section>
+	</lightning-card>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<template if:true={updatePopUp}>
+	<lightning-card>
+	<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+	<div class="slds-modal__container">
+			<div class="slds-modal__header">
+				<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={customHideModalPopup}>
+					<lightning-icon icon-name="utility:close"
+					alternative-text="close"
+					variant="inverse"
+					size="small" ></lightning-icon>
+					<span class="slds-assistive-text">Close</span>
+				</button>
+				<h2 class="slds-text-heading_medium">Edit Record</h2>
+			</div>
+		<div class="container-fluid">
+		<div class="slds-modal__content slds-p-around_medium">
+		<lightning-record-edit-form record-id={selectedRecord} object-api-name="Residential_Loan_Application__c" onsubmit={handleSubmitUpdate}>
+				<template for:each={rows} for:item="row">
+					<lightning-layout key={row} multiple-rows>
+						<template for:each={row} for:item="field">
+							<lightning-layout-item key={field.fieldApiName} size="6">
+								<lightning-input-field field-name={field.fieldApiName}></lightning-input-field>
+							</lightning-layout-item>
+						</template>
+					</lightning-layout>
+				</template>
+			<footer class="slds-modal__footer slds-align_absolute-center ">
+				<lightning-button-group>
+				  <lightning-button variant="brand" type="submit" label="Save"></lightning-button>
+				  <lightning-button variant="brand" type="cancel" label="Cancel" onclick={customHideModalPopup}>></lightning-button>
+				</lightning-button-group>
+			</footer>
+		</lightning-record-edit-form>
+		</div>
+		</div>
+	</div>
+	</section>
+	</lightning-card>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+</template>

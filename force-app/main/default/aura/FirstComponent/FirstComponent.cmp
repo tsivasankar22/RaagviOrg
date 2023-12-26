@@ -1,0 +1,17 @@
+<aura:component controller="FirstLightningObjectSave" implements = "force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="Sample" type="Layout__c" default="{'sObjectType': 'First_Lightning_Object__c'}" />
+    
+    <div class="slds-align_absolute-center slds-border_bottom slds-page-header slds-text-heading--large slds-m-top_medium">
+        Please Fill The Following Details
+    </div>
+    <div class="slds-align_absolute-center">
+        <div>
+            <lightning:input label="Enter Name" name="sname" value="{!v.Sample.Name}" required="true"/>
+            <lightning:input label="Message Tittle" name="tittle" value="{!v.Sample.Message_Title__c}" />
+            <lightning:input label="Message Body" name="Mbody" value="{!v.Sample.Message_Body__c}" />  
+            <lightning:button label="Submit" onclick="{!c.doSubmit}"></lightning:button> 
+        </div>
+    </div>    
+    
+</aura:component>

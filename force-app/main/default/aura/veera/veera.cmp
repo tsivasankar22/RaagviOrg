@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="Name" type="String" />
+    <aura:attribute name="Email" type="String"  />
+    <aura:attribute name="Gender" type="string[]"/>
+    <aura:attribute name="DOB" type="Date"/>
+    <aura:attribute name="Mobile" type="Integer" />
+    <aura:attribute name="UserName" type="String" />
+    <aura:attribute name="password" type="String"/>
+    <aura:attribute name="showpassword" type="Boolean" default="false"/>
+    <body>
+        <div class="slds-form-element slds-align_absolute-left slds-m-top_x-large">
+            <div class="slds-col slds-size_4-of-12">
+                <form style="border-style:solid;border-width:2px;">
+                    <div  class="slds-align_absolute-left slds-m-top_small slds-text-heading_large">
+                        <span><U><B>Testing</B></U></span>
+                    </div>
+                    <b><lightning:input label="Name" name="Name" value="{!v.Name}" /></b>
+                    <b><lightning:input label="Email" name="Email" value="{!v.Email}"/></b>
+                    <b><lightning:select label="Gender" name="Gender" value="{!v.Gender}">
+                        <option value="0">None</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Others</option>
+                        </lightning:select></b>
+                    <b><lightning:input label="DOB" name="date" type="date" value="{!v.DOB}" /></b>
+                    <b><lightning:input label="Mobile" type="tel" value="{!v.Mobile}"></lightning:input></b>
+                    <b><lightning:input label="UserName" type="UserName" name="UserName" required="true" value="{!v.UserName}" /></b>
+                    <label class="slds-form-element__label" for="password_field"><B>Password</B></label>
+                        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                            <lightning:input variant = "label-hidden" type="{!v.showpassword ? 'text':'password'}"
+                                             aura:id="password_field" value="{!v.password}"/>
+                            <lightning:buttonIcon class="slds-button slds-input__icon slds-text-color--default"
+                                                  iconName="{!v.showpassword ? 'utility:hide':'utility:preview'}"
+                                                  alternativeText="{!v.coborrowerSSNCB ? 'Hide':'Show'}"
+                                                  onclick="{!c.togglePassword}"/>
+                        </div>
+                    <div class="slds-align_absolute-center" style="height:4rem">
+                        <lightning:button variant="Brand" label="Submit" onclick="{!c.submit}"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</aura:component>

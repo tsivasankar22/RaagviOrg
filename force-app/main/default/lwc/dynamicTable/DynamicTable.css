@@ -1,0 +1,10 @@
+.cell{
+    text-align: left;
+    padding: 0.5rem;
+    white-space:normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.tableView{
+    overflow: auto;
+}

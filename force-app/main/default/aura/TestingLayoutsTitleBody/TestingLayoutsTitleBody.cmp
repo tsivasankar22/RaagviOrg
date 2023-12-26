@@ -1,0 +1,31 @@
+<aura:component controller="TestLayoutsTitleBody" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="ContentVersionId" type="List"/>
+    <aura:attribute name="selTabId" type="String"  />
+    
+    <div class="slds-box slds-box_xx-small slds-text-align_center" style="background-color: white; height : auto; width : 50%;">
+       
+           
+            
+                 <lightning:tabset variant="default" selectedTabId="{!v.selTabId}">
+                <aura:iteration items="{!v.ContentVersionId}" var="a" indexvar="index">
+                    <lightning:tab aura:id="tab1" tabindex="1" id="{!a.index}">
+                        <img src="{!'/sfc/servlet.shepherd/version/download/' +a.Id}"/>
+                    </lightning:tab>
+                </aura:iteration>
+            </lightning:tabset>
+       
+        
+        <div class="slds-clearfix">
+            <div class="slds-float_left">
+                <lightning:button variant="brand" label = "Back" onclick ="{!c.back}" />
+            </div>
+            <div class="slds-float_right">
+                <lightning:button variant="brand" label = "Next"   onclick ="{!c.next}" />
+            </div>
+        </div>
+    </div>
+  
+</aura:component>
